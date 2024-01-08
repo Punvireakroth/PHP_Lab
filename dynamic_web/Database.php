@@ -7,12 +7,16 @@ class Database
     public $connection;
 
 
-    public function __construct()
+    public function __construct($config, $username = 'root', $password = '')
     {
-        // connect to mysql database
-        $dsn = "mysql:host=localhost;port=3306;dbname=myapp;user=root;charset=utf8mb4";
 
-        $this->connection = new PDO($dsn);
+
+        $dsn = 'mysql:' . http_build_query($config, '', ';');
+
+        // connect to mysql database
+        // $dsn = "mysql:host={$config['host']};port={$config['port']};dbname={$config['dbname']};user=root;charset={$config['charset']}";
+
+        $this->connection = new PDO($dsn, $username, $password, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
     }
 
 
