@@ -1,7 +1,8 @@
-<?php require("partials/head.php") ?>
-<?php require("partials/nav.php") ?>
+<?php require("views/partials/head.php") ?>
+<?php require("views/partials/nav.php") ?>
+<?php require("views/partials/banner.php") ?>
 
-<?php require("partials/banner.php") ?>
+
 <main>
 <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
         <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -18,7 +19,7 @@
                                               placeholder="Here's an idea for a note..."><?= $_POST['body'] ?? '' ?></textarea>
 
                                     <?php if (isset($errors['body'])): ?>
-                                                    <p class="text-red-500 text-xs"><?= $errors['body'] ?></p>
+                                                                            <p class="text-red-500 text-xs"><?= $errors['body'] ?></p>
                                     <?php endif ?>
                                 </div>
                             </div>
@@ -36,4 +37,4 @@
         </div>
     </div>
 </main>
-<?php require("partials/footer.php") ?>;
+<?php require("views/partials/footer.php") ?>;
