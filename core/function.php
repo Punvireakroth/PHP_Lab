@@ -1,5 +1,8 @@
 <?php
 
+use core\Response;
+
+
 function dd($value)
 {
     echo "<pre>";
@@ -8,6 +11,8 @@ function dd($value)
 
     die();
 }
+
+
 
 function authorize($condition, $status = Response::FORBIDDEN)
 {
