@@ -1,6 +1,6 @@
 <?php require base_path('views/partials/head.php') ?>
 <?php require base_path('views/partials/nav.php') ?>
-<?php require base_path('views/partials/banner.php') ?> ?>
+<?php require base_path('views/partials/banner.php') ?>
 
 
 <main>
@@ -9,6 +9,11 @@
       <a href="/notes" class="text-blue-500 hover:underline">go back...</a>
     </p>
       <p><?= htmlspecialchars($note['body']) ?></p>
+
+      <form action="" method="POST">
+        <input type="hidden" name="id" value="<?= $note['id'] ?>">
+        <button class="mt-6 text-rose-600">Delete</button>
+      </form>
   </div>
 </main>
 <?php require base_path('views/partials/footer.php') ?>
