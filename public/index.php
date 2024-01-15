@@ -13,16 +13,23 @@ spl_autoload_register(function ($class) {
     require base_path("{$class}.php");
 });
 
+
+
+// instantiate router object
 $router = new \core\Router();
 
 
+// Below code will available in Router.php to use
+
 $routes = require base_path("routes.php");
+
 // only pick the route not id
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
-
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
+
+// accept uri and display where it needs to go
 $router->route($uri, "GET");
 
 

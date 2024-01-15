@@ -14,6 +14,7 @@ class Router
             'method' => $method
         ];
     }
+
     public function get($uri, $controller)
     {
         $this->add('GET', $uri, $controller);
