@@ -10,11 +10,11 @@
     </p>
       <p><?= htmlspecialchars($note['body']) ?></p>
 
-      <form class="mt-6" method="POST">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="hidden" name="id" value="<?= $note['id'] ?>">
-        <button class="mt-6 text-rose-600">Delete</button>
-      </form>
+
+      <footer class="mt-6">
+        <a href="note/edit?id=<?= $note['id'] ?>" class="inline-flex justify-center rounded-md border border-transparent bg-gray-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Edit</a>
+      </footer>
+
   </div>
 </main>
 <?php require base_path('views/partials/footer.php') ?>
