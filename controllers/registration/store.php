@@ -9,6 +9,7 @@ $password = $_POST['password'];
 
 
 // Validate input 
+$errors = [];
 if (!Validator::email($email)) {
     $errors['email'] = "Please provide an valid email address";
 }
@@ -34,6 +35,7 @@ $user = $db->query('select * from users where email = :email', [
 
 if (!$user) {
     header('location: /');
+    exit();
 } else {
     $db->query('INSERT INTO users(email, password) VALUES(:email, :password)', [
         'email' => $email,
