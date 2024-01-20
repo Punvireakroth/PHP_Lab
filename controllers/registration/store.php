@@ -4,8 +4,9 @@ use core\Database;
 use core\App;
 
 $email = $_POST['email'];
-
 $password = $_POST['password'];
+
+$db = App::resolve(Database::class);
 
 
 // Validate input 
@@ -24,7 +25,6 @@ if (!empty($errors)) {
 }
 
 
-$db = App::resolve(Database::class);
 // check if user already existed
 $user = $db->query('select * from users where email = :email', [
     'email' => $email
@@ -33,7 +33,7 @@ $user = $db->query('select * from users where email = :email', [
 
 // If yes -> Login page
 
-if (!$user) {
+if ($user) {
     header('location: /');
     exit();
 } else {
