@@ -2,7 +2,7 @@
 
 use core\App;
 use core\Database;
-use core\Validator;
+use Http\Forms\LoginForm;
 
 // login the user if the credential match
 
@@ -12,20 +12,12 @@ $db = App::resolve(Database::class);
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Validate input 
-$errors = [];
-if (!Validator::email($email)) {
-    $errors['email'] = "Please provide an valid email address";
-}
+$form = new LoginForm();
 
-if (!Validator::string($password)) {
-    $errors['password'] = "Please provide a valid password";
+if (!$form->validate($email, $password)) {
+    return view('sessions/create.view.php', ['errors' => $form->errors()]);
 }
-
-
-if (!empty($errors)) {
-    return view('sessions/create.view.php', ['errors' => $errors]);
-}
+;
 
 // match the credential 
 $user = $db->query('select * from users where email = :email', [

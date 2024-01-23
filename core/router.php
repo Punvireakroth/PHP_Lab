@@ -1,8 +1,7 @@
 <?php
 namespace core;
 
-use core\Middleware\Guest;
-use core\Middleware\Auth;
+
 use core\Middleware\Middleware;
 
 
@@ -61,7 +60,7 @@ class Router
                 Middleware::resolve($route['middleware']);
 
 
-                return require base_path($route['controller']);
+                return require base_path('Http/controllers/' . $route['controller']);
             }
         }
 
@@ -79,5 +78,3 @@ class Router
         die();
     }
 }
-
-
