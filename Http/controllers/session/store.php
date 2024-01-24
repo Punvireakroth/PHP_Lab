@@ -2,7 +2,9 @@
 
 
 use Http\Forms\LoginForm;
-use Http\Authenticator;
+use core\Authenticator;
+
+var_dump("I have been posted");
 
 // login the user if the credential match
 

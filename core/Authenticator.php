@@ -1,10 +1,6 @@
 <?php
 
-namespace Http;
-
-use core\App;
-use core\Database;
-
+namespace core;
 
 class Authenticator
 {
@@ -46,7 +42,7 @@ class Authenticator
 
         $params = session_get_cookie_params();
 
-        setcookie("PHPSESSID", "", time() - 3600, $params['domain ']);
+        setcookie("PHPSESSID", "", time() - 3600, $params['domain'], $params['secure'], $params['httponly']);
     }
 
 }

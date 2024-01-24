@@ -32,12 +32,3 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 // accept uri and display where it needs to go
 $router->route($uri, $method);
-
-
-
-
-
-
-
-
-
