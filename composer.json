@@ -1,0 +1,10 @@
+{
+    "name": "vireakroth/php_lab",
+    "authors": [
+        {
+            "name": "Pun VireakRoth",
+            "email": "vireakrothpun@gmail.com"
+        }
+    ],
+    "require": {}
+}
